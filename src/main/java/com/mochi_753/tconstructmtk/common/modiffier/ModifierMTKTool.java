@@ -1,6 +1,5 @@
 package com.mochi_753.tconstructmtk.common.modiffier;
 
-import com.mochi_753.tconstructmtk.TConstructMTK;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
@@ -51,9 +50,7 @@ public class ModifierMTKTool extends NoLevelsModifier implements BreakSpeedModif
             if (attacker instanceof ServerPlayer serverPlayer) {
                 lightningBolt.moveTo(target.position());
                 lightningBolt.setCause(serverPlayer);
-                if (!target.isDeadOrDying()) {
-                    target.level().addFreshEntity(lightningBolt);
-                }
+                if (!target.isDeadOrDying()) target.level().addFreshEntity(lightningBolt);
             }
 
             Holder<DamageType> holder = target.level().registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.GENERIC);
@@ -69,25 +66,22 @@ public class ModifierMTKTool extends NoLevelsModifier implements BreakSpeedModif
         LivingEntity attacker = context.getAttacker();
         Entity entity = context.getTarget();
 
-        Holder<DamageType> holder = entity.level().registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.GENERIC);
-        DamageSource source = new DamageSource(holder);
-
         if (entity instanceof LivingEntity target) {
-            if(target.distanceToSqr(attacker) > 50.0) {
+            if (target.distanceToSqr(attacker) > 64.0) { // 8ブロック以上距離が離れていたら (多分)
                 LightningBolt lightningBolt = Objects.requireNonNull(EntityType.LIGHTNING_BOLT.create(target.level()));
                 lightningBolt.wasOnFire = false;
                 if (attacker instanceof ServerPlayer serverPlayer) {
                     lightningBolt.moveTo(target.position());
                     lightningBolt.setCause(serverPlayer);
-                    if (!target.isDeadOrDying()) {
-                        target.level().addFreshEntity(lightningBolt);
-                    }
+                    if (!target.isDeadOrDying()) target.level().addFreshEntity(lightningBolt);
                 }
             }
 
             target.setInvulnerable(false);
             target.setHealth(0.0F);
 
+            Holder<DamageType> holder = entity.level().registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.GENERIC);
+            DamageSource source = new DamageSource(holder);
             if (!target.isDeadOrDying()) {
                 target.hurt(source, Float.MAX_VALUE);
                 target.die(source);
