@@ -1,8 +1,12 @@
 package com.mochi_753.tconstructmtk.common.modiffier;
 
+import net.minecraft.ChatFormatting;
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageType;
@@ -31,6 +35,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Objects;
 
 @ParametersAreNonnullByDefault
+@MethodsReturnNonnullByDefault
 public class ModifierMTKTool extends NoLevelsModifier implements BreakSpeedModifierHook, ProjectileHitModifierHook, MeleeHitModifierHook {
     @Override
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
@@ -87,5 +92,15 @@ public class ModifierMTKTool extends NoLevelsModifier implements BreakSpeedModif
                 target.die(source);
             }
         }
+    }
+
+    @Override
+    public Component getDisplayName() {
+        return ((MutableComponent) super.getDisplayName()).withStyle(ChatFormatting.LIGHT_PURPLE);
+    }
+
+    @Override
+    public Component getDisplayName(int level) {
+        return this.getDisplayName();
     }
 }

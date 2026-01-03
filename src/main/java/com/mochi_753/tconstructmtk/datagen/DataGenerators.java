@@ -3,10 +3,13 @@ package com.mochi_753.tconstructmtk.datagen;
 import com.mochi_753.tconstructmtk.TConstructMTK;
 import com.mochi_753.tconstructmtk.datagen.fluid.TinkerMTKFluidTagProvider;
 import com.mochi_753.tconstructmtk.datagen.fluid.TinkerMTKFluidTextureProvider;
+import com.mochi_753.tconstructmtk.datagen.lang.TinkerMTKEnglishLangProvider;
+import com.mochi_753.tconstructmtk.datagen.lang.TinkerMTKJapaneseLangProvider;
 import com.mochi_753.tconstructmtk.datagen.material.TinkerMTKMaterialDataProvider;
 import com.mochi_753.tconstructmtk.datagen.material.TinkerMTKMaterialStatsDataProvider;
 import com.mochi_753.tconstructmtk.datagen.material.TinkerMTKMaterialTagDataProvider;
 import com.mochi_753.tconstructmtk.datagen.material.TinkerMTKMaterialTraitsProvider;
+import com.mochi_753.tconstructmtk.datagen.recipe.TinkerMTKRecipeProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -29,11 +32,15 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new TinkerMTKFluidTagProvider(packOutput, lookupProvider, existingFileHelper));
         generator.addProvider(event.includeServer(), new TinkerMTKFluidTextureProvider(packOutput));
 
+        generator.addProvider(event.includeServer(), new TinkerMTKEnglishLangProvider(packOutput));
+        generator.addProvider(event.includeServer(), new TinkerMTKJapaneseLangProvider(packOutput));
+
         TinkerMTKMaterialDataProvider materialDataProvider = new TinkerMTKMaterialDataProvider(packOutput);
         generator.addProvider(event.includeServer(), materialDataProvider);
         generator.addProvider(event.includeServer(), new TinkerMTKMaterialTraitsProvider(packOutput, materialDataProvider));
         generator.addProvider(event.includeServer(), new TinkerMTKMaterialStatsDataProvider(packOutput, materialDataProvider));
         generator.addProvider(event.includeServer(), new TinkerMTKMaterialTagDataProvider(packOutput, existingFileHelper));
+
         generator.addProvider(event.includeServer(), new TinkerMTKRecipeProvider(packOutput));
     }
 }
