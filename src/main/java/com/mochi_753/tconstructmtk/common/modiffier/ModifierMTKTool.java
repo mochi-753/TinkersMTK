@@ -67,12 +67,19 @@ public class ModifierMTKTool extends NoLevelsModifier implements BreakSpeedModif
     }
 
     @Override
-    public void afterMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageDealt) {
-        LivingEntity attacker = context.getAttacker();
-        Entity entity = context.getTarget();
+    public float beforeMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damage, float baseKnockback, float knockback) {
+        onMeleeHit(context.getAttacker(), context.getTarget(), true);
+        return MeleeHitModifierHook.super.beforeMeleeHit(tool, modifier, context, damage, baseKnockback, knockback);
+    }
 
+    @Override
+    public void afterMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageDealt) {
+        onMeleeHit(context.getAttacker(), context.getTarget(), false);
+    }
+
+    private void onMeleeHit(LivingEntity attacker, Entity entity, boolean lightning) {
         if (entity instanceof LivingEntity target) {
-            if (target.distanceToSqr(attacker) > 64.0) { // 8ブロック以上距離が離れていたら (多分)
+            if (lightning && target.distanceToSqr(attacker) > 64.0) { // 8ブロック以上距離が離れていたら (多分)
                 LightningBolt lightningBolt = Objects.requireNonNull(EntityType.LIGHTNING_BOLT.create(target.level()));
                 lightningBolt.wasOnFire = false;
                 if (attacker instanceof ServerPlayer serverPlayer) {
