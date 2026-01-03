@@ -21,7 +21,7 @@ public class TinkerMTKMaterialStatsDataProvider extends AbstractMaterialStatsDat
                 HandleMaterialStats.multipliers().attackDamage(Integer.MAX_VALUE).attackSpeed(Integer.MAX_VALUE).durability(Integer.MAX_VALUE).miningSpeed(Integer.MAX_VALUE).build(),
                 StatlessMaterialStats.BINDING);
         addMaterialStats(TinkerMTKMaterialIds.MTK_TOOL,
-                new LimbMaterialStats(Integer.MAX_VALUE, Float.MAX_VALUE, Float.MAX_VALUE, Float.MAX_VALUE),
+                new LimbMaterialStats(Integer.MAX_VALUE, Float.MAX_VALUE, 100.0F, 100.0F),
                 new GripMaterialStats(Float.MAX_VALUE, Float.MAX_VALUE, Float.MAX_VALUE));
     }
 
