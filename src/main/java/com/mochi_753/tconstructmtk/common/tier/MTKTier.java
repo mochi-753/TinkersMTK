@@ -31,6 +31,7 @@ public class MTKTier implements Tier {
         return Integer.MAX_VALUE;
     }
 
+    @SuppressWarnings({"NullableProblems", "DataFlowIssue"})
     @Override
     public Ingredient getRepairIngredient() {
         return null;
