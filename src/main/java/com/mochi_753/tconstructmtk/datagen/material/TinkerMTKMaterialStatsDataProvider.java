@@ -1,4 +1,4 @@
-package com.mochi_753.tconstructmtk.datagen;
+package com.mochi_753.tconstructmtk.datagen.material;
 
 import com.mochi_753.tconstructmtk.common.material.TinkerMTKMaterialIds;
 import com.mochi_753.tconstructmtk.common.registry.TinkerMTKTiers;

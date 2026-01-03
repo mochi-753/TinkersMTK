@@ -1,6 +1,12 @@
 package com.mochi_753.tconstructmtk.datagen;
 
 import com.mochi_753.tconstructmtk.TConstructMTK;
+import com.mochi_753.tconstructmtk.datagen.fluid.TinkerMTKFluidTagProvider;
+import com.mochi_753.tconstructmtk.datagen.fluid.TinkerMTKFluidTextureProvider;
+import com.mochi_753.tconstructmtk.datagen.material.TinkerMTKMaterialDataProvider;
+import com.mochi_753.tconstructmtk.datagen.material.TinkerMTKMaterialStatsDataProvider;
+import com.mochi_753.tconstructmtk.datagen.material.TinkerMTKMaterialTagDataProvider;
+import com.mochi_753.tconstructmtk.datagen.material.TinkerMTKMaterialTraitsProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;

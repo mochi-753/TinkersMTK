@@ -1,4 +1,4 @@
-package com.mochi_753.tconstructmtk.datagen;
+package com.mochi_753.tconstructmtk.datagen.fluid;
 
 import com.mochi_753.tconstructmtk.TConstructMTK;
 import com.mochi_753.tconstructmtk.common.registry.TinkerMTKFluids;
@@ -20,7 +20,7 @@ public class TinkerMTKFluidTextureProvider extends AbstractFluidTextureProvider 
 
     @Override
     public void addTextures() {
-        texture(TinkerMTKFluids.MOLTEN_MTK).root(new ResourceLocation(TConstructMTK.MOD_ID, "fluid/molten/mtk_tool_"))
+        texture(TinkerMTKFluids.MOLTEN_MTK).root(new ResourceLocation(TConstructMTK.MOD_ID, "fluid/molten/mtk_"))
                 .still().flowing().camera().calculateFogColor(true).fog(FogShape.SPHERE, 0.25F, 2);
     }
 
