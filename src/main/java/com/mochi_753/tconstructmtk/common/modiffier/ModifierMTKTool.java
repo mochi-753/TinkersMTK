@@ -1,5 +1,6 @@
 package com.mochi_753.tconstructmtk.common.modiffier;
 
+import com.mochi_753.tconstructmtk.TConstructMTK;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
@@ -65,12 +66,25 @@ public class ModifierMTKTool extends NoLevelsModifier implements BreakSpeedModif
 
     @Override
     public void afterMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageDealt) {
+        LivingEntity attacker = context.getAttacker();
         Entity entity = context.getTarget();
 
         Holder<DamageType> holder = entity.level().registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.GENERIC);
         DamageSource source = new DamageSource(holder);
 
         if (entity instanceof LivingEntity target) {
+            if(target.distanceToSqr(attacker) > 50.0) {
+                LightningBolt lightningBolt = Objects.requireNonNull(EntityType.LIGHTNING_BOLT.create(target.level()));
+                lightningBolt.wasOnFire = false;
+                if (attacker instanceof ServerPlayer serverPlayer) {
+                    lightningBolt.moveTo(target.position());
+                    lightningBolt.setCause(serverPlayer);
+                    if (!target.isDeadOrDying()) {
+                        target.level().addFreshEntity(lightningBolt);
+                    }
+                }
+            }
+
             target.setInvulnerable(false);
             target.setHealth(0.0F);
 
