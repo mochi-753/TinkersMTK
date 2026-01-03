@@ -10,7 +10,6 @@ import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 import slimeknights.mantle.registration.deferred.FluidDeferredRegister;
 import slimeknights.mantle.registration.object.FlowingFluidObject;
-import slimeknights.tconstruct.TConstruct;
 
 public class TinkerMTKFluids {
     private static final FluidDeferredRegister FLUIDS = new FluidDeferredRegister(TConstructMTK.MOD_ID);
@@ -19,7 +18,7 @@ public class TinkerMTKFluids {
             .canDrown(false)
             .canSwim(false)
             .density(Integer.MAX_VALUE)
-            .descriptionId(TConstruct.makeDescriptionId("fluid", "molten_manaita"))
+            .descriptionId("fluid.tconstructmtk.molten_mtk")
             .motionScale(0.0)
             .pathType(BlockPathTypes.LAVA)
             .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL_LAVA)
