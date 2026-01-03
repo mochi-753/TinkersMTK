@@ -1,5 +1,5 @@
 {
-  "color": "FF010101",
+  "color": "FF111111",
   "fallbacks": [
     "metal"
   ],
@@ -14,42 +14,6 @@
       "tconstruct:head",
       "tconstruct:limb",
       "tconstruct:maille"
-    ],
-    "transformer": {
-      "type": "tconstruct:recolor_sprite",
-      "color_mapping": {
-        "type": "tconstruct:grey_to_color",
-        "palette": [
-          {
-            "color": "FF000000",
-            "grey": 0
-          },
-          {
-            "color": "FF010101",
-            "grey": 63
-          },
-          {
-            "color": "FF010101",
-            "grey": 102
-          },
-          {
-            "color": "FF010101",
-            "grey": 140
-          },
-          {
-            "color": "00000000",
-            "grey": 178
-          },
-          {
-            "color": "00000000",
-            "grey": 216
-          },
-          {
-            "color": "FFFFFFFF",
-            "grey": 255
-          }
-        ]
-      }
-    }
+    ]
   }
 }
