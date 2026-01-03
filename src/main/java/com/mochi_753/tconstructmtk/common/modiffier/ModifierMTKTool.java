@@ -65,7 +65,6 @@ public class ModifierMTKTool extends NoLevelsModifier implements BreakSpeedModif
 
     @Override
     public void afterMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageDealt) {
-        LivingEntity attacker = context.getAttacker();
         Entity entity = context.getTarget();
 
         Holder<DamageType> holder = entity.level().registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.GENERIC);
