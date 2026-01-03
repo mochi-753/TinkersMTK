@@ -8,7 +8,7 @@ version = "${mod_version}"
 displayName = "${mod_name}"
 authors = "${mod_authors}"
 description = '''${mod_description}'''
-credits = 'This addon includes some resources from ManaitaMTK. ManaitaMTK is provided under All Rights Reserved and is used with explicit permission from the original author (たこやき).'
+credits = 'This addon includes some resources from Tinkers\' Construct and ManaitaMTK. ManaitaMTK is provided under All Rights Reserved and is used with explicit permission from the original author, たこやき.'
 
 [[dependencies.${ mod_id }]]
 modId = "forge"
