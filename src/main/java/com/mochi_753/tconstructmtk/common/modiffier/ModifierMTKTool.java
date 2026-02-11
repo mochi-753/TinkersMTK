@@ -1,20 +1,14 @@
 package com.mochi_753.tconstructmtk.common.modiffier;
 
+import com.takoy3466.manaitamtk.util.WeaponUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Direction;
-import net.minecraft.core.Holder;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageType;
-import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraftforge.event.entity.player.PlayerEvent;
@@ -32,7 +26,6 @@ import slimeknights.tconstruct.library.tools.nbt.ModDataNBT;
 import slimeknights.tconstruct.library.tools.nbt.ModifierNBT;
 
 import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.Objects;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
@@ -49,18 +42,9 @@ public class ModifierMTKTool extends NoLevelsModifier implements BreakSpeedModif
 
     @Override
     public boolean onProjectileHitEntity(ModifierNBT modifiers, ModDataNBT persistentData, ModifierEntry modifier, Projectile projectile, EntityHitResult hit, @Nullable LivingEntity attacker, @Nullable LivingEntity target) {
-        if (target != null && !target.level().isClientSide()) {
-            LightningBolt lightningBolt = Objects.requireNonNull(EntityType.LIGHTNING_BOLT.create(target.level()));
-            lightningBolt.wasOnFire = false;
-            if (attacker instanceof ServerPlayer serverPlayer) {
-                lightningBolt.moveTo(target.position());
-                lightningBolt.setCause(serverPlayer);
-                if (!target.isDeadOrDying()) target.level().addFreshEntity(lightningBolt);
-            }
-
-            Holder<DamageType> holder = target.level().registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.GENERIC);
-            target.hurt(new DamageSource(holder), Float.MAX_VALUE);
-            target.setHealth(0.0F);
+        if (attacker instanceof Player player && !player.level().isClientSide() && target != null) {
+            WeaponUtil.lightningStriker(target, player.level(), player);
+            WeaponUtil.die(target);
         }
 
         return ProjectileHitModifierHook.super.onProjectileHitEntity(modifiers, persistentData, modifier, projectile, hit, attacker, target);
@@ -78,26 +62,10 @@ public class ModifierMTKTool extends NoLevelsModifier implements BreakSpeedModif
     }
 
     private void onMeleeHit(LivingEntity attacker, Entity entity, boolean lightning) {
-        if (entity instanceof LivingEntity target) {
-            if (lightning && target.distanceToSqr(attacker) > 64.0) { // 8ブロック以上距離が離れていたら (多分)
-                LightningBolt lightningBolt = Objects.requireNonNull(EntityType.LIGHTNING_BOLT.create(target.level()));
-                lightningBolt.wasOnFire = false;
-                if (attacker instanceof ServerPlayer serverPlayer) {
-                    lightningBolt.moveTo(target.position());
-                    lightningBolt.setCause(serverPlayer);
-                    if (!target.isDeadOrDying()) target.level().addFreshEntity(lightningBolt);
-                }
-            }
-
-            target.setInvulnerable(false);
-            target.setHealth(0.0F);
-
-            Holder<DamageType> holder = entity.level().registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(DamageTypes.GENERIC);
-            DamageSource source = new DamageSource(holder);
-            if (!target.isDeadOrDying()) {
-                target.hurt(source, Float.MAX_VALUE);
-                target.die(source);
-            }
+        if (attacker instanceof Player player && !player.level().isClientSide() && entity instanceof LivingEntity target) {
+            if (lightning && target.distanceToSqr(attacker) > 64.0)
+                WeaponUtil.lightningStriker(target, player.level(), player);
+            WeaponUtil.die(target);
         }
     }
 

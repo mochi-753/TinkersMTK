@@ -4,7 +4,11 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 
 public class MTKTier implements Tier {
-    public static final MTKTier INSTANCE = new MTKTier();
+    private static final MTKTier INSTANCE = new MTKTier();
+
+    public static MTKTier getInstance() {
+        return INSTANCE;
+    }
 
     @Override
     public int getUses() {
