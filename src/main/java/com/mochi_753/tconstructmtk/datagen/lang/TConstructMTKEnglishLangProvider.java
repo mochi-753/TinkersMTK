@@ -1,20 +1,20 @@
 package com.mochi_753.tconstructmtk.datagen.lang;
 
 import com.mochi_753.tconstructmtk.TConstructMTK;
-import com.mochi_753.tconstructmtk.common.registry.TinkerMTKFluids;
+import com.mochi_753.tconstructmtk.common.registry.TConstructMTKFluids;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.LanguageProvider;
 
 import java.util.Objects;
 
-public class TinkerMTKEnglishLangProvider extends LanguageProvider {
-    public TinkerMTKEnglishLangProvider(PackOutput output) {
+public class TConstructMTKEnglishLangProvider extends LanguageProvider {
+    public TConstructMTKEnglishLangProvider(PackOutput output) {
         super(output, TConstructMTK.MOD_ID, "en_us");
     }
 
     @Override
     protected void addTranslations() {
-        add(Objects.requireNonNull(TinkerMTKFluids.MOLTEN_MTK.getBucket()), "Molten MTK Bucket");
+        add(Objects.requireNonNull(TConstructMTKFluids.MOLTEN_MTK.getBucket()), "Molten MTK Bucket");
 
         add("fluid.tconstructmtk.molten_mtk", "Molten MTK");
 

@@ -1,8 +1,8 @@
 package com.mochi_753.tconstructmtk;
 
-import com.mochi_753.tconstructmtk.common.registry.TinkerMTKFluids;
-import com.mochi_753.tconstructmtk.common.registry.TinkerMTKModifiers;
-import com.mochi_753.tconstructmtk.common.registry.TinkerMTKTiers;
+import com.mochi_753.tconstructmtk.common.registry.TConstructMTKFluids;
+import com.mochi_753.tconstructmtk.common.registry.TConstructMTKModifiers;
+import com.mochi_753.tconstructmtk.common.registry.TConstructMTKTiers;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -22,8 +22,8 @@ public class TConstructMTK {
     public TConstructMTK(FMLJavaModLoadingContext context) {
         IEventBus eventBus = context.getModEventBus();
 
-        TinkerMTKFluids.register(eventBus);
-        TinkerMTKModifiers.register(eventBus);
-        TinkerMTKTiers.init(); // 無意味だけどこれがないと動かない
+        TConstructMTKFluids.register(eventBus);
+        TConstructMTKModifiers.register(eventBus);
+        TConstructMTKTiers.init(); // 無意味だけどこれがないと動かない
     }
 }

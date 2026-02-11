@@ -1,15 +1,15 @@
 package com.mochi_753.tconstructmtk.datagen;
 
 import com.mochi_753.tconstructmtk.TConstructMTK;
-import com.mochi_753.tconstructmtk.datagen.fluid.TinkerMTKFluidTagProvider;
-import com.mochi_753.tconstructmtk.datagen.fluid.TinkerMTKFluidTextureProvider;
-import com.mochi_753.tconstructmtk.datagen.lang.TinkerMTKEnglishLangProvider;
-import com.mochi_753.tconstructmtk.datagen.lang.TinkerMTKJapaneseLangProvider;
-import com.mochi_753.tconstructmtk.datagen.material.TinkerMTKMaterialDataProvider;
-import com.mochi_753.tconstructmtk.datagen.material.TinkerMTKMaterialStatsDataProvider;
-import com.mochi_753.tconstructmtk.datagen.material.TinkerMTKMaterialTagDataProvider;
-import com.mochi_753.tconstructmtk.datagen.material.TinkerMTKMaterialTraitsProvider;
-import com.mochi_753.tconstructmtk.datagen.recipe.TinkerMTKRecipeProvider;
+import com.mochi_753.tconstructmtk.datagen.fluid.TConstructMTKFluidTagProvider;
+import com.mochi_753.tconstructmtk.datagen.fluid.TConstructMTKFluidTextureProvider;
+import com.mochi_753.tconstructmtk.datagen.lang.TConstructMTKEnglishLangProvider;
+import com.mochi_753.tconstructmtk.datagen.lang.TConstructMTKJapaneseLangProvider;
+import com.mochi_753.tconstructmtk.datagen.material.TConstructMTKMaterialDataProvider;
+import com.mochi_753.tconstructmtk.datagen.material.TConstructMTKMaterialStatsDataProvider;
+import com.mochi_753.tconstructmtk.datagen.material.TConstructMTKMaterialTagDataProvider;
+import com.mochi_753.tconstructmtk.datagen.material.TConstructMTKMaterialTraitsProvider;
+import com.mochi_753.tconstructmtk.datagen.recipe.TConstructMTKRecipeProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -29,18 +29,18 @@ public class DataGenerators {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
-        generator.addProvider(event.includeServer(), new TinkerMTKFluidTagProvider(packOutput, lookupProvider, existingFileHelper));
-        generator.addProvider(event.includeServer(), new TinkerMTKFluidTextureProvider(packOutput));
+        generator.addProvider(event.includeServer(), new TConstructMTKFluidTagProvider(packOutput, lookupProvider, existingFileHelper));
+        generator.addProvider(event.includeServer(), new TConstructMTKFluidTextureProvider(packOutput));
 
-        generator.addProvider(event.includeServer(), new TinkerMTKEnglishLangProvider(packOutput));
-        generator.addProvider(event.includeServer(), new TinkerMTKJapaneseLangProvider(packOutput));
+        generator.addProvider(event.includeServer(), new TConstructMTKEnglishLangProvider(packOutput));
+        generator.addProvider(event.includeServer(), new TConstructMTKJapaneseLangProvider(packOutput));
 
-        TinkerMTKMaterialDataProvider materialDataProvider = new TinkerMTKMaterialDataProvider(packOutput);
+        TConstructMTKMaterialDataProvider materialDataProvider = new TConstructMTKMaterialDataProvider(packOutput);
         generator.addProvider(event.includeServer(), materialDataProvider);
-        generator.addProvider(event.includeServer(), new TinkerMTKMaterialTraitsProvider(packOutput, materialDataProvider));
-        generator.addProvider(event.includeServer(), new TinkerMTKMaterialStatsDataProvider(packOutput, materialDataProvider));
-        generator.addProvider(event.includeServer(), new TinkerMTKMaterialTagDataProvider(packOutput, existingFileHelper));
+        generator.addProvider(event.includeServer(), new TConstructMTKMaterialTraitsProvider(packOutput, materialDataProvider));
+        generator.addProvider(event.includeServer(), new TConstructMTKMaterialStatsDataProvider(packOutput, materialDataProvider));
+        generator.addProvider(event.includeServer(), new TConstructMTKMaterialTagDataProvider(packOutput, existingFileHelper));
 
-        generator.addProvider(event.includeServer(), new TinkerMTKRecipeProvider(packOutput));
+        generator.addProvider(event.includeServer(), new TConstructMTKRecipeProvider(packOutput));
     }
 }

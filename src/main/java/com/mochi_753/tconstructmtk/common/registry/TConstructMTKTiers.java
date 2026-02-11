@@ -9,9 +9,9 @@ import net.minecraftforge.common.TierSortingRegistry;
 import java.util.List;
 
 @SuppressWarnings("removal")
-public class TinkerMTKTiers {
+public class TConstructMTKTiers {
     public static final Tier MTK = TierSortingRegistry.registerTier(
-            MTKTier.INSTANCE,
+            MTKTier.getInstance(),
             new ResourceLocation(TConstructMTK.MOD_ID, "mtk"),
             List.of(), List.of()
     );

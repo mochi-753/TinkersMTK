@@ -1,7 +1,7 @@
 package com.mochi_753.tconstructmtk.datagen.fluid;
 
 import com.mochi_753.tconstructmtk.TConstructMTK;
-import com.mochi_753.tconstructmtk.common.registry.TinkerMTKFluids;
+import com.mochi_753.tconstructmtk.common.registry.TConstructMTKFluids;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -16,8 +16,8 @@ import java.util.concurrent.CompletableFuture;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class TinkerMTKFluidTagProvider extends FluidTagsProvider {
-    public TinkerMTKFluidTagProvider(PackOutput pOutput, CompletableFuture<HolderLookup.Provider> pProvider, ExistingFileHelper pExistingFileHelper) {
+public class TConstructMTKFluidTagProvider extends FluidTagsProvider {
+    public TConstructMTKFluidTagProvider(PackOutput pOutput, CompletableFuture<HolderLookup.Provider> pProvider, ExistingFileHelper pExistingFileHelper) {
         super(pOutput, pProvider, TConstructMTK.MOD_ID, pExistingFileHelper);
     }
 
@@ -28,7 +28,7 @@ public class TinkerMTKFluidTagProvider extends FluidTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
-        fluidTag(TinkerMTKFluids.MOLTEN_MTK);
+        fluidTag(TConstructMTKFluids.MOLTEN_MTK);
     }
 
     private void fluidTag(FlowingFluidObject<?> flowingFluidObject) {

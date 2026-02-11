@@ -1,8 +1,8 @@
 package com.mochi_753.tconstructmtk.datagen.recipe;
 
 import com.mochi_753.tconstructmtk.TConstructMTK;
-import com.mochi_753.tconstructmtk.common.material.TinkerMTKMaterialIds;
-import com.mochi_753.tconstructmtk.common.registry.TinkerMTKFluids;
+import com.mochi_753.tconstructmtk.common.material.TConstructMTKMaterialIds;
+import com.mochi_753.tconstructmtk.common.registry.TConstructMTKFluids;
 import com.takoy3466.manaitamtk.init.ItemsInit;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.data.PackOutput;
@@ -20,8 +20,8 @@ import java.util.function.Consumer;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 @SuppressWarnings("removal")
-public class TinkerMTKRecipeProvider extends RecipeProvider implements IMaterialRecipeHelper {
-    public TinkerMTKRecipeProvider(PackOutput generator) {
+public class TConstructMTKRecipeProvider extends RecipeProvider implements IMaterialRecipeHelper {
+    public TConstructMTKRecipeProvider(PackOutput generator) {
         super(generator);
     }
 
@@ -36,9 +36,9 @@ public class TinkerMTKRecipeProvider extends RecipeProvider implements IMaterial
     }
 
     private void addMeltingRecipes(Consumer<FinishedRecipe> consumer) {
-        MeltingRecipeBuilder.melting(Ingredient.of(ItemsInit.ITEM_MTK.get()), TinkerMTKFluids.MOLTEN_MTK.get(), FluidType.BUCKET_VOLUME, 0.01F)
+        MeltingRecipeBuilder.melting(Ingredient.of(ItemsInit.ITEM_MTK.get()), TConstructMTKFluids.MOLTEN_MTK.get(), FluidType.BUCKET_VOLUME, 0.01F)
                 .save(consumer, new ResourceLocation(TConstructMTK.MOD_ID, "smeltery/melting/mtk"));
-        materialRecipe(consumer, TinkerMTKMaterialIds.MTK_TOOL, Ingredient.of(ItemsInit.ITEM_MTK.get()), 1, 1, "tools/materials/mtk_tool");
-        materialMeltingCasting(consumer, TinkerMTKMaterialIds.MTK_TOOL, TinkerMTKFluids.MOLTEN_MTK, "tools/materials/");
+        materialRecipe(consumer, TConstructMTKMaterialIds.MTK_TOOL, Ingredient.of(ItemsInit.ITEM_MTK.get()), 1, 1, "tools/materials/mtk_tool");
+        materialMeltingCasting(consumer, TConstructMTKMaterialIds.MTK_TOOL, TConstructMTKFluids.MOLTEN_MTK, "tools/materials/");
     }
 }

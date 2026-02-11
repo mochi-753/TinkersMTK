@@ -1,21 +1,21 @@
 package com.mochi_753.tconstructmtk.datagen.material;
 
-import com.mochi_753.tconstructmtk.common.material.TinkerMTKMaterialIds;
-import com.mochi_753.tconstructmtk.common.registry.TinkerMTKModifiers;
+import com.mochi_753.tconstructmtk.common.material.TConstructMTKMaterialIds;
+import com.mochi_753.tconstructmtk.common.registry.TConstructMTKModifiers;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.data.PackOutput;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialTraitDataProvider;
 
 @MethodsReturnNonnullByDefault
-public class TinkerMTKMaterialTraitsProvider extends AbstractMaterialTraitDataProvider {
-    public TinkerMTKMaterialTraitsProvider(PackOutput packOutput, AbstractMaterialDataProvider materials) {
+public class TConstructMTKMaterialTraitsProvider extends AbstractMaterialTraitDataProvider {
+    public TConstructMTKMaterialTraitsProvider(PackOutput packOutput, AbstractMaterialDataProvider materials) {
         super(packOutput, materials);
     }
 
     @Override
     protected void addMaterialTraits() {
-        addDefaultTraits(TinkerMTKMaterialIds.MTK_TOOL, TinkerMTKModifiers.MTK_TOOL_MODIFIER);
+        addDefaultTraits(TConstructMTKMaterialIds.MTK_TOOL, TConstructMTKModifiers.MTK_TOOL_MODIFIER);
     }
 
     @Override

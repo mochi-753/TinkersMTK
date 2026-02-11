@@ -11,7 +11,7 @@ import net.minecraftforge.fluids.ForgeFlowingFluid;
 import slimeknights.mantle.registration.deferred.FluidDeferredRegister;
 import slimeknights.mantle.registration.object.FlowingFluidObject;
 
-public class TinkerMTKFluids {
+public class TConstructMTKFluids {
     private static final FluidDeferredRegister FLUIDS = new FluidDeferredRegister(TConstructMTK.MOD_ID);
     private static final FluidType.Properties MTK_FLUID_PROPERTY = FluidType.Properties.create()
             .adjacentPathType(null)
