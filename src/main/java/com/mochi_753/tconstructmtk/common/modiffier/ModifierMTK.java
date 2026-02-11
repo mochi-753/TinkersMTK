@@ -11,6 +11,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.phys.EntityHitResult;
+import net.minecraftforge.entity.PartEntity;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import org.jetbrains.annotations.Nullable;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
@@ -62,6 +63,11 @@ public class ModifierMTK extends NoLevelsModifier implements BreakSpeedModifierH
     }
 
     private void onMeleeHit(LivingEntity attacker, Entity entity, boolean lightning) {
+        if (entity instanceof PartEntity<?> partEntity) {
+            onMeleeHit(attacker, partEntity.getParent(), lightning);
+            return;
+        }
+
         if (attacker instanceof Player player && !player.level().isClientSide() && entity instanceof LivingEntity target) {
             if (lightning && target.distanceToSqr(attacker) > 64.0)
                 WeaponUtil.lightningStriker(target, player.level(), player);
