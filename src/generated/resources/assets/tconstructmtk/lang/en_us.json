@@ -4,5 +4,8 @@
   "material.tconstructmtk.mtk_tool": "Manaita",
   "modifier.tconstructmtk.mtk_tool": "MTK",
   "modifier.tconstructmtk.mtk_tool.description": "The might of the Manaita resides within you — the ultimate, invincible modifier.",
-  "modifier.tconstructmtk.mtk_tool.flavor": "Manaita POWEERRRR!!!"
+  "modifier.tconstructmtk.mtk_tool.flavor": "Manaita POWEERRRR!!!",
+  "modifier.tconstructmtk.mtk_unbreakable": "Unbreakable",
+  "modifier.tconstructmtk.mtk_unbreakable.description": "You really think Manaita’s gonna break?",
+  "modifier.tconstructmtk.mtk_unbreakable.flavor": "Manaita POWEERRRR!!!"
 }

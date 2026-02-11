@@ -23,5 +23,8 @@ public class TConstructMTKEnglishLangProvider extends LanguageProvider {
         add("modifier.tconstructmtk.mtk_tool", "MTK");
         add("modifier.tconstructmtk.mtk_tool.flavor", "Manaita POWEERRRR!!!");
         add("modifier.tconstructmtk.mtk_tool.description", "The might of the Manaita resides within you — the ultimate, invincible modifier.");
+        add("modifier.tconstructmtk.mtk_unbreakable", "Unbreakable");
+        add("modifier.tconstructmtk.mtk_unbreakable.flavor", "Manaita POWEERRRR!!!");
+        add("modifier.tconstructmtk.mtk_unbreakable.description", "You really think Manaita’s gonna break?");
     }
 }

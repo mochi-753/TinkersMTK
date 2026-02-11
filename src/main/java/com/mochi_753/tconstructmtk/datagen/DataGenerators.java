@@ -9,6 +9,7 @@ import com.mochi_753.tconstructmtk.datagen.material.TConstructMTKMaterialDataPro
 import com.mochi_753.tconstructmtk.datagen.material.TConstructMTKMaterialStatsDataProvider;
 import com.mochi_753.tconstructmtk.datagen.material.TConstructMTKMaterialTagDataProvider;
 import com.mochi_753.tconstructmtk.datagen.material.TConstructMTKMaterialTraitsProvider;
+import com.mochi_753.tconstructmtk.datagen.modifier.TConstructMTKModifierProvider;
 import com.mochi_753.tconstructmtk.datagen.recipe.TConstructMTKRecipeProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -40,6 +41,8 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new TConstructMTKMaterialTraitsProvider(packOutput, materialDataProvider));
         generator.addProvider(event.includeServer(), new TConstructMTKMaterialStatsDataProvider(packOutput, materialDataProvider));
         generator.addProvider(event.includeServer(), new TConstructMTKMaterialTagDataProvider(packOutput, existingFileHelper));
+
+        generator.addProvider(event.includeServer(), new TConstructMTKModifierProvider(packOutput));
 
         generator.addProvider(event.includeServer(), new TConstructMTKRecipeProvider(packOutput));
     }
