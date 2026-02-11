@@ -3,7 +3,7 @@
   "ingredient": {
     "item": "manaitamtk:item_mtk"
   },
-  "material": "tconstructmtk:mtk_tool",
+  "material": "tconstructmtk:mtk",
   "needed": 1,
   "value": 1
 }

@@ -16,7 +16,6 @@ public class TConstructMTKMaterialTagDataProvider extends MaterialTagProvider {
 
     @Override
     protected void addTags() {
-        this.tag(TinkerTags.Materials.EXCLUDE_FROM_LOOT).addOptional(new ResourceLocation(TConstructMTK.MOD_ID, TConstructMTKMaterialIds.MTK_ARMOR.getPath()));
-        this.tag(TinkerTags.Materials.EXCLUDE_FROM_LOOT).addOptional(new ResourceLocation(TConstructMTK.MOD_ID, TConstructMTKMaterialIds.MTK_TOOL.getPath()));
+        this.tag(TinkerTags.Materials.EXCLUDE_FROM_LOOT).addOptional(new ResourceLocation(TConstructMTK.MOD_ID, TConstructMTKMaterialIds.MTK.getPath()));
     }
 }

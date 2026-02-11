@@ -39,7 +39,7 @@ public class TConstructMTKRecipeProvider extends RecipeProvider implements IMate
         MeltingRecipeBuilder.melting(Ingredient.of(ItemsInit.ITEM_MTK.get()), TConstructMTKFluids.MOLTEN_MTK.get(), FluidType.BUCKET_VOLUME, 0.01F)
                 .save(consumer, new ResourceLocation(TConstructMTK.MOD_ID, "smeltery/melting/mtk"));
 
-        materialRecipe(consumer, TConstructMTKMaterialIds.MTK_TOOL, Ingredient.of(ItemsInit.ITEM_MTK.get()), 1, 1, "tools/materials/mtk_tool");
-        materialMeltingCasting(consumer, TConstructMTKMaterialIds.MTK_TOOL, TConstructMTKFluids.MOLTEN_MTK, "tools/materials/");
+        materialRecipe(consumer, TConstructMTKMaterialIds.MTK, Ingredient.of(ItemsInit.ITEM_MTK.get()), 1, 1, "tools/materials/mtk");
+        materialMeltingCasting(consumer, TConstructMTKMaterialIds.MTK, TConstructMTKFluids.MOLTEN_MTK, "tools/materials/");
     }
 }

@@ -13,8 +13,7 @@ public class TConstructMTKMaterialDataProvider extends AbstractMaterialDataProvi
 
     @Override
     protected void addMaterials() {
-        addMaterial(TConstructMTKMaterialIds.MTK_ARMOR, 6, ORDER_COMPAT, false);
-        addMaterial(TConstructMTKMaterialIds.MTK_TOOL, 6, ORDER_COMPAT, false);
+        addMaterial(TConstructMTKMaterialIds.MTK, 6, ORDER_COMPAT, false);
     }
 
     @Override

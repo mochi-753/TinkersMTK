@@ -1,11 +1,7 @@
 {
   "values": [
     {
-      "id": "tconstructmtk:mtk_armor",
-      "required": false
-    },
-    {
-      "id": "tconstructmtk:mtk_tool",
+      "id": "tconstructmtk:mtk",
       "required": false
     }
   ]

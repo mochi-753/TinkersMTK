@@ -16,16 +16,19 @@ public class TConstructMTKMaterialStatsDataProvider extends AbstractMaterialStat
 
     @Override
     protected void addMaterialStats() {
-        addArmorShieldStats(TConstructMTKMaterialIds.MTK_ARMOR,
-                PlatingMaterialStats.builder().durabilityFactor(Float.MAX_VALUE).armor(Float.MAX_VALUE, Float.MAX_VALUE, Float.MAX_VALUE, Float.MAX_VALUE).knockbackResistance(Float.MAX_VALUE));
-
-        addMaterialStats(TConstructMTKMaterialIds.MTK_TOOL,
+        addMaterialStats(TConstructMTKMaterialIds.MTK,
                 new HeadMaterialStats(Integer.MAX_VALUE, Float.MAX_VALUE, TConstructMTKTiers.MTK, Float.MAX_VALUE),
                 HandleMaterialStats.multipliers().attackDamage(Integer.MAX_VALUE).attackSpeed(Integer.MAX_VALUE).durability(Integer.MAX_VALUE).miningSpeed(Integer.MAX_VALUE).build(),
                 StatlessMaterialStats.BINDING);
-        addMaterialStats(TConstructMTKMaterialIds.MTK_TOOL,
+
+        addMaterialStats(TConstructMTKMaterialIds.MTK,
                 new LimbMaterialStats(Integer.MAX_VALUE, Float.MAX_VALUE, 100.0F, 100.0F),
                 new GripMaterialStats(Float.MAX_VALUE, Float.MAX_VALUE, Float.MAX_VALUE));
+
+        addArmorShieldStats(TConstructMTKMaterialIds.MTK,
+                PlatingMaterialStats.builder().armor(0.0F, 0.0F, 0.0F, 0.0F).durabilityFactor(Float.MAX_VALUE).knockbackResistance(0.0F));
+
+        addMaterialStats(TConstructMTKMaterialIds.MTK, new SkullStats(Integer.MAX_VALUE, Integer.MAX_VALUE));
     }
 
     @Override

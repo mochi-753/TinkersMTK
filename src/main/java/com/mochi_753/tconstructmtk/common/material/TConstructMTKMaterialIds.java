@@ -6,6 +6,5 @@ import slimeknights.tconstruct.library.materials.definition.MaterialId;
 import java.util.Objects;
 
 public class TConstructMTKMaterialIds {
-    public static final MaterialId MTK_ARMOR = Objects.requireNonNull(MaterialId.tryBuild(TConstructMTK.MOD_ID, "mtk_armor"));
-    public static final MaterialId MTK_TOOL = Objects.requireNonNull(MaterialId.tryBuild(TConstructMTK.MOD_ID, "mtk_tool"));
+    public static final MaterialId MTK = Objects.requireNonNull(MaterialId.tryBuild(TConstructMTK.MOD_ID, "mtk"));
 }

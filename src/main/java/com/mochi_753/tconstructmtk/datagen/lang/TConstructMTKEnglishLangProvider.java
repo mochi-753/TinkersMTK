@@ -18,15 +18,11 @@ public class TConstructMTKEnglishLangProvider extends LanguageProvider {
 
         add("fluid.tconstructmtk.molten_mtk", "Molten MTK");
 
-        add("material.tconstructmtk.mtk_tool", "Manaita");
+        add("material.tconstructmtk.mtk", "Manaita");
 
-        add("modifier.tconstructmtk.mtk_armor", "MTK");
-        add("modifier.tconstructmtk.mtk_armor.flavor", "Manaita POWEERRRR!!!");
-        add("modifier.tconstructmtk.mtk_armor.description", "The might of the Manaita resides within you — the ultimate, invincible modifier.");
-
-        add("modifier.tconstructmtk.mtk_tool", "MTK");
-        add("modifier.tconstructmtk.mtk_tool.flavor", "Manaita POWEERRRR!!!");
-        add("modifier.tconstructmtk.mtk_tool.description", "The might of the Manaita resides within you — the ultimate, invincible modifier.");
+        add("modifier.tconstructmtk.mtk", "MTK");
+        add("modifier.tconstructmtk.mtk.flavor", "Manaita POWEERRRR!!!");
+        add("modifier.tconstructmtk.mtk.description", "The might of the Manaita resides within you — the ultimate, invincible modifier.");
 
         add("modifier.tconstructmtk.mtk_unbreakable", "Unbreakable");
         add("modifier.tconstructmtk.mtk_unbreakable.flavor", "Manaita POWEERRRR!!!");

@@ -1,6 +1,6 @@
 {
   "type": "tconstruct:material_melting",
-  "input": "tconstructmtk:mtk_tool",
+  "input": "tconstructmtk:mtk",
   "result": {
     "amount": 90,
     "tag": "forge:molten_mtk"

@@ -29,7 +29,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-public class ModifierMTKTool extends NoLevelsModifier implements BreakSpeedModifierHook, ProjectileHitModifierHook, MeleeHitModifierHook {
+public class ModifierMTK extends NoLevelsModifier implements BreakSpeedModifierHook, ProjectileHitModifierHook, MeleeHitModifierHook {
     @Override
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
         hookBuilder.addHook(this, ModifierHooks.BREAK_SPEED, ModifierHooks.PROJECTILE_HIT, ModifierHooks.MELEE_HIT);

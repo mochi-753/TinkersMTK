@@ -24,6 +24,6 @@ public class TConstructMTK {
 
         TConstructMTKFluids.register(eventBus);
         TConstructMTKModifiers.register(eventBus);
-        TConstructMTKTiers.init(); // 無意味だけどこれがないと動かない
+        new TConstructMTKTiers();
     }
 }
