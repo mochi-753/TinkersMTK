@@ -26,7 +26,7 @@ public class TConstructMTKMaterialStatsDataProvider extends AbstractMaterialStat
                 new GripMaterialStats(Float.MAX_VALUE, Float.MAX_VALUE, Float.MAX_VALUE));
 
         addArmorShieldStats(TConstructMTKMaterialIds.MTK,
-                PlatingMaterialStats.builder().armor(0.0F, 0.0F, 0.0F, 0.0F).durabilityFactor(Float.MAX_VALUE).knockbackResistance(0.0F));
+                PlatingMaterialStats.builder().armor(Float.MAX_VALUE, Float.MAX_VALUE, Float.MAX_VALUE, Float.MAX_VALUE).durabilityFactor(Float.MAX_VALUE).knockbackResistance(Float.MAX_VALUE).toughness(Float.MAX_VALUE));
 
         addMaterialStats(TConstructMTKMaterialIds.MTK, new SkullStats(Integer.MAX_VALUE, Integer.MAX_VALUE));
     }
