@@ -16,7 +16,7 @@ public class TConstructMTKModifierProvider extends AbstractModifierProvider {
 
     @Override
     protected void addModifiers() {
-        buildModifier(TConstructMTKModifiers.MTK_UNBREAKABLE)
+        buildModifier(TConstructMTKModifiers.MTK_UNBREAKABLE_MODIFIER)
                 .addModule(new DurabilityBarColorModule(0xFF0000))
                 .addModule(ReduceToolDamageModule.builder().flat(1.0F))
                 .levelDisplay(ModifierLevelDisplay.NO_LEVELS);

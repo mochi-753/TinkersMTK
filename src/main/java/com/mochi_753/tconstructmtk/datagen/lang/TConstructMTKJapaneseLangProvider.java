@@ -20,9 +20,14 @@ public class TConstructMTKJapaneseLangProvider extends LanguageProvider {
 
         add("material.tconstructmtk.mtk_tool", "まな板");
 
+        add("modifier.tconstructmtk.mtk_armor", "MTK");
+        add("modifier.tconstructmtk.mtk_armor.flavor", "かなりまな板だよコレ！");
+        add("modifier.tconstructmtk.mtk_armor.description", "まな板の力がその身に宿る... 最強無敵のモディファイア！");
+
         add("modifier.tconstructmtk.mtk_tool", "MTK");
         add("modifier.tconstructmtk.mtk_tool.flavor", "かなりまな板だよコレ！");
         add("modifier.tconstructmtk.mtk_tool.description", "まな板の力がその身に宿る... 最強無敵のモディファイア！");
+
         add("modifier.tconstructmtk.mtk_unbreakable", "不可壊");
         add("modifier.tconstructmtk.mtk_unbreakable.flavor", "かなりまな板だよコレ！");
         add("modifier.tconstructmtk.mtk_unbreakable.description", "まな板が壊れるとでも？");

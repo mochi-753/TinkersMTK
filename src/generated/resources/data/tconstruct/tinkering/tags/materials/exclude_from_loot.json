@@ -1,6 +1,10 @@
 {
   "values": [
     {
+      "id": "tconstructmtk:mtk_armor",
+      "required": false
+    },
+    {
       "id": "tconstructmtk:mtk_tool",
       "required": false
     }

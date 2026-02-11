@@ -16,6 +16,9 @@ public class TConstructMTKMaterialStatsDataProvider extends AbstractMaterialStat
 
     @Override
     protected void addMaterialStats() {
+        addArmorShieldStats(TConstructMTKMaterialIds.MTK_ARMOR,
+                PlatingMaterialStats.builder().durabilityFactor(Float.MAX_VALUE).armor(Float.MAX_VALUE, Float.MAX_VALUE, Float.MAX_VALUE, Float.MAX_VALUE).knockbackResistance(Float.MAX_VALUE));
+
         addMaterialStats(TConstructMTKMaterialIds.MTK_TOOL,
                 new HeadMaterialStats(Integer.MAX_VALUE, Float.MAX_VALUE, TConstructMTKTiers.MTK, Float.MAX_VALUE),
                 HandleMaterialStats.multipliers().attackDamage(Integer.MAX_VALUE).attackSpeed(Integer.MAX_VALUE).durability(Integer.MAX_VALUE).miningSpeed(Integer.MAX_VALUE).build(),

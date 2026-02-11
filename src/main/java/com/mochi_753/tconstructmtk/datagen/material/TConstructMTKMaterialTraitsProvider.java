@@ -15,7 +15,8 @@ public class TConstructMTKMaterialTraitsProvider extends AbstractMaterialTraitDa
 
     @Override
     protected void addMaterialTraits() {
-        addDefaultTraits(TConstructMTKMaterialIds.MTK_TOOL, TConstructMTKModifiers.MTK_TOOL_MODIFIER, TConstructMTKModifiers.MTK_UNBREAKABLE);
+        addDefaultTraits(TConstructMTKMaterialIds.MTK_ARMOR, TConstructMTKModifiers.MTK_ARMOR_MODIFIER, TConstructMTKModifiers.MTK_UNBREAKABLE_MODIFIER);
+        addDefaultTraits(TConstructMTKMaterialIds.MTK_TOOL, TConstructMTKModifiers.MTK_TOOL_MODIFIER, TConstructMTKModifiers.MTK_UNBREAKABLE_MODIFIER);
     }
 
     @Override
