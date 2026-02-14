@@ -37,6 +37,8 @@ public class TConstructMTKLanguageProvider extends LanguageProvider {
         add("modifier.tconstructmtk.mtk_unbreakable", "Unbreakable");
         add("modifier.tconstructmtk.mtk_unbreakable.flavor", "Manaita POWEERRRR!!!");
         add("modifier.tconstructmtk.mtk_unbreakable.description", "You really think Manaita’s gonna break?");
+
+        add("stat.tconstruct.harvest_tier.tconstructmtk.mtk", "Manaita");
     }
 
     private void addJapaneseTranslations() {
@@ -53,5 +55,7 @@ public class TConstructMTKLanguageProvider extends LanguageProvider {
         add("modifier.tconstructmtk.mtk_unbreakable", "不可壊");
         add("modifier.tconstructmtk.mtk_unbreakable.flavor", "かなりまな板だよコレ！");
         add("modifier.tconstructmtk.mtk_unbreakable.description", "まな板が壊れるとでも？");
+
+        add("stat.tconstruct.harvest_tier.tconstructmtk.mtk", "まな板");
     }
 }
