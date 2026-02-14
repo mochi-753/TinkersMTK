@@ -15,7 +15,4 @@ public class TConstructMTKTiers {
             new ResourceLocation(TConstructMTK.MOD_ID, "mtk"),
             List.of(), List.of()
     );
-
-    public static void init() {
-    }
 }
