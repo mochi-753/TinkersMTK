@@ -6,6 +6,9 @@ import net.minecraft.world.item.crafting.Ingredient;
 public class MTKTier implements Tier {
     private static final MTKTier INSTANCE = new MTKTier();
 
+    private MTKTier() {
+    }
+
     public static MTKTier getInstance() {
         return INSTANCE;
     }

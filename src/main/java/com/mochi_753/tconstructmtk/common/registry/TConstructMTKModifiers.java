@@ -10,9 +10,10 @@ import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
 public class TConstructMTKModifiers {
     private static final ModifierDeferredRegister MODIFIERS = ModifierDeferredRegister.create(TConstructMTK.MOD_ID);
-
     public static final StaticModifier<NoLevelsModifier> MTK_MODIFIER = MODIFIERS.register("mtk", ModifierMTK::new);
     public static final DynamicModifier MTK_UNBREAKABLE_MODIFIER = MODIFIERS.registerDynamic("mtk_unbreakable");
+    private TConstructMTKModifiers() {
+    }
 
     public static void register(IEventBus eventBus) {
         MODIFIERS.register(eventBus);

@@ -24,13 +24,15 @@ public class TConstructMTKFluids {
             .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL_LAVA)
             .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY_LAVA)
             .temperature(1500);
-
     public static final FlowingFluidObject<ForgeFlowingFluid> MOLTEN_MTK = FLUIDS.register("molten_mtk")
             .block(MapColor.COLOR_BLACK, 0)
             .bucket()
             .commonTag()
             .type(MTK_FLUID_PROPERTY)
             .flowing();
+
+    private TConstructMTKFluids() {
+    }
 
     public static void register(IEventBus eventBus) {
         FLUIDS.register(eventBus);

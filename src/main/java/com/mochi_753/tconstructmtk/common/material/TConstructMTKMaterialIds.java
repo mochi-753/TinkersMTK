@@ -7,4 +7,7 @@ import java.util.Objects;
 
 public class TConstructMTKMaterialIds {
     public static final MaterialId MTK = Objects.requireNonNull(MaterialId.tryBuild(TConstructMTK.MOD_ID, "mtk"));
+
+    private TConstructMTKMaterialIds() {
+    }
 }
