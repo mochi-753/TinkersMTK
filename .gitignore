@@ -7,7 +7,8 @@ out
 build
 .gradle
 
-run
+run-client
+run-server
 run-data
-runs
+
 src/generated/resources/.cache
