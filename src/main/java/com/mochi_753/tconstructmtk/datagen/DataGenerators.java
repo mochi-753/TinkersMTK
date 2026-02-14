@@ -3,8 +3,7 @@ package com.mochi_753.tconstructmtk.datagen;
 import com.mochi_753.tconstructmtk.TConstructMTK;
 import com.mochi_753.tconstructmtk.datagen.fluid.TConstructMTKFluidTagProvider;
 import com.mochi_753.tconstructmtk.datagen.fluid.TConstructMTKFluidTextureProvider;
-import com.mochi_753.tconstructmtk.datagen.lang.TConstructMTKEnglishLangProvider;
-import com.mochi_753.tconstructmtk.datagen.lang.TConstructMTKJapaneseLangProvider;
+import com.mochi_753.tconstructmtk.datagen.lang.TConstructMTKLanguageProvider;
 import com.mochi_753.tconstructmtk.datagen.material.TConstructMTKMaterialDataProvider;
 import com.mochi_753.tconstructmtk.datagen.material.TConstructMTKMaterialStatsDataProvider;
 import com.mochi_753.tconstructmtk.datagen.material.TConstructMTKMaterialTagDataProvider;
@@ -33,8 +32,8 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new TConstructMTKFluidTagProvider(packOutput, lookupProvider, existingFileHelper));
         generator.addProvider(event.includeServer(), new TConstructMTKFluidTextureProvider(packOutput));
 
-        generator.addProvider(event.includeServer(), new TConstructMTKEnglishLangProvider(packOutput));
-        generator.addProvider(event.includeServer(), new TConstructMTKJapaneseLangProvider(packOutput));
+        generator.addProvider(event.includeServer(), new TConstructMTKLanguageProvider(packOutput, "en_us"));
+        generator.addProvider(event.includeServer(), new TConstructMTKLanguageProvider(packOutput, "ja_jp"));
 
         TConstructMTKMaterialDataProvider materialDataProvider = new TConstructMTKMaterialDataProvider(packOutput);
         generator.addProvider(event.includeServer(), materialDataProvider);
