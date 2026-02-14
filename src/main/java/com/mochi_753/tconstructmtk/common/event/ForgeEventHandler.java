@@ -2,6 +2,8 @@ package com.mochi_753.tconstructmtk.common.event;
 
 import com.mochi_753.tconstructmtk.TConstructMTK;
 import com.mochi_753.tconstructmtk.common.registry.TConstructMTKModifiers;
+import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -17,57 +19,58 @@ import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 public class ForgeEventHandler {
     @SubscribeEvent
     public static void onLivingAttack(@NotNull LivingAttackEvent event) {
-        if (event.getEntity() instanceof Player player && isInvincible(player)) {
-            player.setHealth(player.getMaxHealth());
-            event.setCanceled(true);
-        }
+        cancel(event);
     }
 
     @SubscribeEvent
     public static void onLivingDeath(@NotNull LivingDeathEvent event) {
-        if (event.getEntity() instanceof Player player && isInvincible(player)) {
-            player.setHealth(player.getMaxHealth());
-            event.setCanceled(true);
-        }
+        cancel(event);
     }
 
     @SubscribeEvent
     public static void onLivingDamage(@NotNull LivingDamageEvent event) {
-        if (event.getEntity() instanceof Player player && isInvincible(player)) {
-            player.setHealth(player.getMaxHealth());
-            event.setCanceled(true);
-        }
+        cancel(event);
     }
 
     @SubscribeEvent
     public static void onLivingHurt(@NotNull LivingHurtEvent event) {
-        if (event.getEntity() instanceof Player player && isInvincible(player)) {
-            player.setHealth(player.getMaxHealth());
-            event.setCanceled(true);
-        }
+        cancel(event);
     }
 
     @SubscribeEvent
     public static void onLivingKnockBack(@NotNull LivingKnockBackEvent event) {
-        if (event.getEntity() instanceof Player player && isInvincible(player)) event.setCanceled(true);
+        cancel(event);
     }
 
     @SubscribeEvent
     public static void onLivingDrops(@NotNull LivingDropsEvent event) {
-        if (event.getEntity() instanceof Player player && isInvincible(player)) event.setCanceled(true);
+        cancel(event);
     }
 
     @SubscribeEvent
     public static void onExperienceDrop(@NotNull LivingExperienceDropEvent event) {
-        if (event.getEntity() instanceof Player player && isInvincible(player)) event.setCanceled(true);
+        cancel(event);
     }
 
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.@NotNull PlayerTickEvent event) {
-        if (event.phase == TickEvent.Phase.END && event.side.isServer() && isInvincible(event.player)) {
-            event.player.getFoodData().setFoodLevel(20);
-            event.player.getFoodData().setSaturation(20.0F);
+        Player player = event.player;
+
+        if (event.phase == TickEvent.Phase.END && event.side.isServer() && isInvincible(player)) {
+            player.setHealth(player.getMaxHealth());
+            player.getFoodData().setFoodLevel(20);
+            player.getFoodData().setSaturation(20.0F);
+
+            for (MobEffectInstance effectInstance : player.getActiveEffects()) {
+                if (effectInstance.getEffect().getCategory().equals(MobEffectCategory.HARMFUL)) {
+                    player.removeEffect(effectInstance.getEffect());
+                }
+            }
         }
+    }
+
+    private static void cancel(@NotNull LivingEvent event) {
+        if (event.getEntity() instanceof Player player && isInvincible(player)) event.setCanceled(true);
     }
 
     private static boolean isInvincible(Player player) {
