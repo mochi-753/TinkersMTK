@@ -5,16 +5,18 @@ import com.mochi_753.tconstructmtk.common.registry.TConstructMTKModifiers;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import org.jetbrains.annotations.NotNull;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 @Mod.EventBusSubscriber(modid = TConstructMTK.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ForgeEventHandler {
     @SubscribeEvent
-    public static void onLivingAttack(LivingAttackEvent event) {
+    public static void onLivingAttack(@NotNull LivingAttackEvent event) {
         if (event.getEntity() instanceof Player player && isInvincible(player)) {
             player.setHealth(player.getMaxHealth());
             event.setCanceled(true);
@@ -22,7 +24,7 @@ public class ForgeEventHandler {
     }
 
     @SubscribeEvent
-    public static void onLivingDeath(LivingDeathEvent event) {
+    public static void onLivingDeath(@NotNull LivingDeathEvent event) {
         if (event.getEntity() instanceof Player player && isInvincible(player)) {
             player.setHealth(player.getMaxHealth());
             event.setCanceled(true);
@@ -30,7 +32,7 @@ public class ForgeEventHandler {
     }
 
     @SubscribeEvent
-    public static void onLivingDamage(LivingDamageEvent event) {
+    public static void onLivingDamage(@NotNull LivingDamageEvent event) {
         if (event.getEntity() instanceof Player player && isInvincible(player)) {
             player.setHealth(player.getMaxHealth());
             event.setCanceled(true);
@@ -38,7 +40,7 @@ public class ForgeEventHandler {
     }
 
     @SubscribeEvent
-    public static void onLivingHurt(LivingHurtEvent event) {
+    public static void onLivingHurt(@NotNull LivingHurtEvent event) {
         if (event.getEntity() instanceof Player player && isInvincible(player)) {
             player.setHealth(player.getMaxHealth());
             event.setCanceled(true);
@@ -46,18 +48,26 @@ public class ForgeEventHandler {
     }
 
     @SubscribeEvent
-    public static void onLivingKnockBack(LivingKnockBackEvent event) {
+    public static void onLivingKnockBack(@NotNull LivingKnockBackEvent event) {
         if (event.getEntity() instanceof Player player && isInvincible(player)) event.setCanceled(true);
     }
 
     @SubscribeEvent
-    public static void onLivingDrops(LivingDropsEvent event) {
+    public static void onLivingDrops(@NotNull LivingDropsEvent event) {
         if (event.getEntity() instanceof Player player && isInvincible(player)) event.setCanceled(true);
     }
 
     @SubscribeEvent
-    public static void onExperienceDrop(LivingExperienceDropEvent event) {
+    public static void onExperienceDrop(@NotNull LivingExperienceDropEvent event) {
         if (event.getEntity() instanceof Player player && isInvincible(player)) event.setCanceled(true);
+    }
+
+    @SubscribeEvent
+    public static void onPlayerTick(TickEvent.@NotNull PlayerTickEvent event) {
+        if (event.phase == TickEvent.Phase.END && event.side.isServer() && isInvincible(event.player)) {
+            event.player.getFoodData().setFoodLevel(20);
+            event.player.getFoodData().setSaturation(20.0F);
+        }
     }
 
     private static boolean isInvincible(Player player) {
